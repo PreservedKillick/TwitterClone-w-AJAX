@@ -11,7 +11,7 @@ describe User do
   it { should validate_uniqueness_of :handle}
 
   it 'sends a welcome email' do
-    user = User.new
+    user = User.new(:name => "Bailey", :handle => "BaiBai", :email => 'bailey@chs.com', :password => 'password', :password_confirmation => 'password')
     expect(UserMailer).to receive(:signup_confirmation).with(user)
     user.save
   end
