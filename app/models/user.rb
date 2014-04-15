@@ -7,8 +7,9 @@ class User < ActiveRecord::Base
   validates :password, :presence => true
   validates :handle, :presence => true, :uniqueness => true
 
-  def send_welcome_message
-    UserMailer.signup_confirmation(self)
-  end
 
+
+  def send_welcome_message
+    UserMailer.send_confirmation(self)
+  end
 end

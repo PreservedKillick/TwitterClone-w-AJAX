@@ -7,4 +7,7 @@ class UserMailer < ActionMailer::Base
     mail to: user.email, subject: 'Signup Confirmation'
   end
 
+  def send_confirmation(user)
+    signup_confirmation(user).deliver
+  end
 end
