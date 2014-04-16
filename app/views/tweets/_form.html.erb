@@ -1,0 +1,9 @@
+<%= render("layouts/errors", :object => @tweet) %>
+<%= form_for [@user, @tweet], remote: true do |f| %>
+  <div class="form-group">
+    <%= f.label :tweet %>
+    <%= f.text_field :tweet %>
+  </div>
+
+  <%= f.submit(:class => "btn btn-primary") %>
+<% end %>

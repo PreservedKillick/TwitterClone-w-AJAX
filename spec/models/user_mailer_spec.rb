@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe UserMailer do
  it "sends an email" do
-    @user = FactoryGirl.build(:bailey_user)
+    @user = FactoryGirl.create(:bailey_user)
     UserMailer.send_confirmation(@user)
     ActionMailer::Base.deliveries.last.to.should == [@user.email]
   end
@@ -28,7 +28,7 @@ describe UserMailer do
     end
 
     it 'assigns @confirmation_url' do
-      mail.body.encoded.should match("localhost:3000/")
+      mail.body.encoded.should match("localhost:3000/users/#{user.id}")
     end
   end
 end

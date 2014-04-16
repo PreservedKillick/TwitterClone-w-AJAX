@@ -1,0 +1,10 @@
+
+<h1><%= @user.handle %></h1>
+
+<ul id="users_tweets">
+  <% @user.tweets.each do |tweet| %>
+    <li><%= tweet.tweet %></li>
+  <% end %>
+</ul>
+
+<%= link_to "Tweet", new_user_tweet_path(@user), :class => "btn btn-warning", id: "new_link", remote: true %>

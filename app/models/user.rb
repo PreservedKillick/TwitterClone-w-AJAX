@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  has_many :tweets
+
   after_create :send_welcome_message
 
   has_secure_password
